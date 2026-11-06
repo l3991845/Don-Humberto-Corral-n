@@ -1,0 +1,745 @@
+/* =========================================================
+   CORRALÓN DON HUMBERTO
+   Hoja de estilos renovada
+   Mantiene las clases utilizadas en los HTML actuales.
+   ========================================================= */
+
+/* ---------- 1. Configuración general ---------- */
+
+:root {
+    --azul-oscuro: #202e39;
+    --azul-medio: #344653;
+    --azul-claro: #eaf0f4;
+    --amarillo: #ffc13b;
+    --amarillo-claro: #fff2d2;
+    --fondo: #f3f5f7;
+    --blanco: #ffffff;
+    --texto: #263238;
+    --texto-suave: #687780;
+    --borde: #dfe5e9;
+    --sombra: 0 4px 14px rgba(32, 46, 57, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 250px;
+    padding: 24px;
+    min-height: 100vh;
+}
+
+/* ---------- 2. Encabezado ---------- */
+
+header {
+    background-color: var(--blanco);
+    padding: 18px 24px;
+    margin: -24px -24px 24px;
+    border-bottom: 1px solid var(--borde);
+}
+
+header h1 {
+    color: var(--azul-oscuro);
+    font-size: 23px;
+}
+
+/* ---------- 3. Barra lateral ---------- */
+
+.sidebar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    padding: 20px 14px;
+    overflow-y: auto;
+    box-shadow: 3px 0 14px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--amarillo);
+    font-size: 13px;
+    padding: 10px 8px 22px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.logo h2 {
+    line-height: 1.25;
+}
+
+.imagen_logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.imagen_sidebar {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    color: #e5eaf0;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu a:hover {
+    background-color: var(--azul-medio);
+    color: var(--blanco);
+}
+
+.menu a.activo {
+    background-color: #101b24;
+    color: var(--amarillo);
+    font-weight: bold;
+    box-shadow: inset 3px 0 0 var(--amarillo);
+}
+
+/* ---------- 4. Contenido y tarjetas ---------- */
+
+section {
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.contenido_3 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 22px;
+    padding: 24px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    overflow-x: auto;
+}
+
+.contenido_3 h1,
+.contenido_3 h2,
+.contenido_3 h3,
+.contenido_3 h4 {
+    color: var(--azul-oscuro);
+    margin-bottom: 16px;
+}
+
+.contenido_3 h1 {
+    font-size: 25px;
+}
+
+.contenido_3 h3 {
+    font-size: 20px;
+}
+
+.galeria {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 18px;
+    width: 100%;
+    margin: 0 0 22px;
+}
+
+.contenido_galeria,
+.contenido_galeria2,
+.contenido_galeria4 {
+    margin: 0;
+    padding: 20px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.contenido_galeria {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    flex: 1 1 190px;
+    min-width: 180px;
+    min-height: 125px;
+}
+
+.contenido_galeria h4 {
+    color: var(--texto-suave);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contenido_galeria h2 {
+    color: var(--azul-oscuro);
+    font-size: 27px;
+}
+
+.contenido_galeria h5 {
+    color: #16834a;
+    font-size: 12px;
+}
+
+.contenido_galeria a,
+.contenido_3 a {
+    color: #27678b;
+    text-decoration: none;
+}
+
+.contenido_galeria a:hover,
+.contenido_3 a:hover {
+    text-decoration: underline;
+}
+
+.contenido_galeria2,
+.contenido_galeria4 {
+    flex: 1 1 350px;
+    min-width: 0;
+    min-height: 220px;
+}
+
+.contenido_galeria2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido_galeria2 img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.contenido_galeria4 {
+    min-height: 250px;
+}
+
+.grafica_img {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------- 5. Tablas ---------- */
+
+.excel-table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--texto);
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.excel-table th,
+.excel-table td {
+    border-bottom: 1px solid var(--borde);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.excel-table th {
+    background-color: var(--azul-claro);
+    color: var(--azul-oscuro);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.excel-table tbody tr:nth-child(even) {
+    background-color: #f8fafb;
+}
+
+.excel-table tbody tr:hover {
+    background-color: #fff7e5;
+}
+
+.excel-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.excel-table2 {
+    width: 100%;
+    margin: 18px 0;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.excel-table2 th,
+.excel-table2 td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+}
+
+.excel-table2 td:first-child {
+    color: var(--texto-suave);
+    font-weight: 600;
+}
+
+/* ---------- 6. Estados de productos y pedidos ---------- */
+
+.rojo {
+    color: #c62828;
+    font-weight: 600;
+}
+
+.naranja {
+    color: #c77700;
+    font-weight: 600;
+}
+
+.celeste {
+    color: #087da0;
+    font-weight: 600;
+}
+
+.verde {
+    color: #16834a;
+    font-weight: 600;
+}
+
+/* ---------- 7. Campos de búsqueda y formularios ---------- */
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    font: inherit;
+}
+
+input[type="text"],
+select,
+textarea {
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd4da;
+    border-radius: 7px;
+    background-color: var(--blanco);
+    color: var(--texto);
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #d99a16;
+    box-shadow: 0 0 0 3px rgba(255, 193, 59, 0.2);
+}
+
+input[type="checkbox"] {
+    accent-color: #d99a16;
+    margin-right: 6px;
+}
+
+label {
+    color: var(--texto);
+}
+
+/* ---------- 8. Botones ---------- */
+
+button,
+.boton_filtro,
+.agregar_producto,
+.agregar_venta,
+.boton_verde,
+.boton_gris {
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.boton_filtro {
+    display: inline-block;
+    background-color: var(--azul-medio);
+    color: var(--blanco);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.boton_filtro:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.agregar_producto,
+.agregar_venta {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: var(--amarillo-claro);
+    color: #5c430d;
+    border: 1px solid var(--amarillo);
+    padding: 10px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.agregar_producto:hover,
+.agregar_venta:hover {
+    background-color: #ffe3a0;
+}
+
+.agregar_venta {
+    margin-right: 0;
+}
+
+.boton_verde {
+    margin: 15px 0;
+    background-color: #16834a;
+    color: white;
+    border: 1px solid #16834a;
+    padding: 10px 16px;
+    border-radius: 7px;
+}
+
+.boton_verde:hover {
+    background-color: #116b3b;
+}
+
+.boton_gris {
+    margin: 15px 0;
+    background-color: #edf0f2;
+    color: var(--texto);
+    border: 1px solid #cbd4da;
+    padding: 10px 16px;
+    border-radius: 7px;
+}
+
+.boton_gris:hover {
+    background-color: #dfe5e9;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- 9. Distribución de elementos ---------- */
+
+.space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.indice_lineal {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contenedor_sidebar {
+    display: flex;
+}
+
+/* ---------- 10. Paginación ---------- */
+
+.botones_prouctos {
+    background-color: #edf0f2;
+    color: var(--texto);
+    padding: 9px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 3px;
+}
+
+.botones_prouctos:hover {
+    background-color: #dfe5e9;
+}
+
+#botones_prouctos_activo,
+.botones_prouctos.pagina-activa {
+    background-color: var(--amarillo);
+    color: #382900;
+    border-color: var(--amarillo);
+    font-weight: bold;
+}
+
+/* ---------- 11. Ventana emergente de inicio de sesión ---------- */
+
+.fondo-login {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 18px;
+    background-color: rgba(15, 25, 33, 0.65);
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-login {
+    position: relative;
+    width: 390px;
+    max-width: 100%;
+    padding: 32px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
+}
+
+.contenido-login h2 {
+    color: var(--azul-oscuro);
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.contenido-login p {
+    color: var(--texto-suave);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.contenido-login label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.contenido-login input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd4da;
+    border-radius: 7px;
+    outline: none;
+}
+
+.contenido-login input:focus {
+    border-color: #d99a16;
+    box-shadow: 0 0 0 3px rgba(255, 193, 59, 0.2);
+}
+
+.boton-login {
+    width: 100%;
+    padding: 12px;
+    margin-top: 24px;
+    background-color: var(--amarillo);
+    color: #382900;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.boton-login:hover {
+    background-color: #edb32e;
+}
+
+.cerrar-login {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+    color: var(--texto-suave);
+    border: none;
+    border-radius: 6px;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cerrar-login:hover {
+    background-color: #f0f2f4;
+    color: var(--texto);
+}
+
+/* ---------- 12. Adaptación para tablets ---------- */
+
+@media (max-width: 1000px) {
+    body {
+        padding: 18px;
+    }
+
+    header {
+        margin: -18px -18px 20px;
+    }
+
+    .contenido_3 {
+        padding: 20px;
+    }
+
+    .galeria {
+        gap: 14px;
+    }
+}
+
+/* ---------- 13. Adaptación para celulares ---------- */
+
+@media (max-width: 700px) {
+    body {
+        margin-left: 0;
+        padding: 14px;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 12px;
+        margin: -14px -14px 20px;
+        overflow: visible;
+    }
+
+    .logo {
+        padding: 6px 6px 12px;
+        margin-bottom: 10px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+
+    .imagen_logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .menu > div {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    .menu a {
+        min-height: 40px;
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .imagen_sidebar {
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+    }
+
+    header {
+        margin: 0 0 18px;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .contenido_3 {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .contenido_3 h1 {
+        font-size: 21px;
+    }
+
+    .contenido_galeria {
+        flex-basis: calc(50% - 8px);
+        min-width: 135px;
+        padding: 15px;
+    }
+
+    .contenido_galeria h2 {
+        font-size: 23px;
+    }
+
+    .contenido_galeria2,
+    .contenido_galeria4 {
+        flex-basis: 100%;
+        padding: 16px;
+    }
+
+    .space-between {
+        align-items: flex-start;
+    }
+
+    .excel-table {
+        min-width: 620px;
+        font-size: 12px;
+    }
+
+    .excel-table th,
+    .excel-table td {
+        padding: 9px 10px;
+    }
+
+    .contenido-login {
+        padding: 26px 22px;
+    }
+}
+
+@media (max-width: 380px) {
+    .menu > div {
+        grid-template-columns: 1fr;
+    }
+
+    .contenido_galeria {
+        flex-basis: 100%;
+    }
+}

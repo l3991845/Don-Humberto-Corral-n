@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don humberto.com</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img class="imagen_logo"  src="./imagenes/logo_corralon.png" alt="[^]">
+            <h2>Corralón Don Humberto</h2>
+        </div>
+        <nav class="menu">
+            <div>
+                <a href="index.html"> <img class="imagen_sidebar" src="./imagenes/inicio.png" alt="[^]"> Inicio</a>
+                <a href="productos.html" class="activo"> <img class="imagen_sidebar" src="./imagenes/caja.png"> Productos</a>
+                <a href="ventas.html"> <img class="imagen_sidebar" src="./imagenes/carrito.png"> Ventas</a>
+                <a href="compras.html"><img class="imagen_sidebar" src="./imagenes/carrito.png"> compras</a>
+                <a href="logistica.html"> <img class="imagen_sidebar" src="./imagenes/camion.png"> Logística</a>
+                <a href="facturacion.html"><img class="imagen_sidebar" src="./imagenes/cuadernito.png">Facturaciones</a>            </div>
+                <a href="#" onclick="abrirLogin(event)"><img class="imagen_sidebar" src="./imagenes/login.png" alt="">Iniciar sesión</a>
+            </div>
+        </nav>
+    </aside>   
+    <section class=contenido_3>
+        <div>
+            <h1>Productos en Stock<h1>
+            <div>
+                <input type="text" placeholder="Buscar producto...">
+                <a class="boton_filtro" >Filtro</a>
+            </div>
+            <table class="excel-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Producto</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-productos">
+                    <tr>
+                        <td>P001</td>
+                        <td>Cemento Avellaneda</td>
+                        <td>Cementos</td>
+                        <td>$8.500</td>
+                        <td>150</td>
+                        <td class="verde">OK<td>
+                    </tr>
+                    <tr>
+                        <td>P002</td>
+                        <td>Arena Fina</td>
+                        <td>Áridos</td>
+                        <td>$7.000</td>
+                        <td>35</td>
+                        <td class="naranja">Bajo<td>
+                    </tr>
+                    <tr>
+                        <td>P003</td>
+                        <td>Ladrillos de Arcilla</td>
+                        <td>Ladrillos</td>
+                        <td>$850</td>
+                        <td>600</td>
+                        <td class="verde">OK<td>
+                    </tr>
+                    <tr>
+                        <td>P004</td>
+                        <td>Hierro 12mmx12mm</td>
+                        <td>Hierros</td>
+                        <td>$12.000</td>
+                        <td>12</td>
+                        <td class="rojo">Crítico<td>
+                    </tr>
+                    <tr>
+                        <td>P005</td>
+                        <td>Cal Hidratada</td>
+                        <td>Cementos</td>
+                        <td>$2.300</td>
+                        <td>80</td>
+                        <td class="verde">OK<td>
+                    </tr>
+                    <tr>
+                        <td>P006</td>
+                        <td>Cerámico 32cmx23cm</td>
+                        <td>Cerámicos</td>
+                        <td>$6.900</td>
+                        <td>45</td>
+                        <td class="naranja">Bajo<td>
+                    </tr>
+                    <tr>
+                        <td>P007</td>
+                        <td>Larillos de encastre</td>
+                        <td>Larillos</td>
+                        <td>$1.000</td>
+                        <td>40</td>
+                        <td class="naranja">Bajo<td>
+                    </tr>
+                    <tr>
+                        <td>P008</td>
+                        <td>Mallas de Hierro 25mx1m-8mm espesor</td>
+                        <td>Hierros</td>
+                        <td>$5.000</td>
+                        <td>20</td>
+                        <td class="rojo">Crítico<td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="space-between">
+            <h5 id="contador-productos">Mostrando 1 a 8 de 32 productos.</h5>
+            <nav>
+                <div>
+                    <button class="botones_prouctos pagina-activa"
+                        id="pagina-1"
+                        onclick="cambiarPagina(1)">1</button>
+
+                    <button class="botones_prouctos"
+                        id="pagina-2"
+                        onclick="cambiarPagina(2)">2</button>
+
+                    <button class="botones_prouctos"
+                        id="pagina-3"
+                        onclick="cambiarPagina(3)">3</button>
+
+                    <button class="botones_prouctos"
+                        id="pagina-4"
+                        onclick="cambiarPagina(4)">4</button>
+                </div>
+            </nav>
+        </div>
+        
+    </section> 
+    <script>
+        const productos = [
+            ["P001", "Cemento Avellaneda", "Cementos", "$8.500", "150", "OK", "verde"],
+            ["P002", "Arena Fina", "Áridos", "$7.000", "35", "Bajo", "naranja"],
+            ["P003", "Ladrillos de Arcilla", "Ladrillos", "$850", "600", "OK", "verde"],
+            ["P004", "Hierro 12mmx12mm", "Hierros", "$12.000", "12", "Crítico", "rojo"],
+            ["P005", "Cal Hidratada", "Cementos", "$2.300", "80", "OK", "verde"],
+            ["P006", "Cerámico 32cmx23cm", "Cerámicos", "$6.900", "45", "Bajo", "naranja"],
+            ["P007", "Larillos de encastre", "Larillos", "$1.000", "40", "Bajo", "naranja"],
+            ["P008", "Mallas de Hierro 25mx1m-8mm espesor", "Hierros", "$5.000", "20", "Crítico", "rojo"],
+
+            ["P009", "Cerámicos 16cmx16cm", "Cerámicos", "$3.450", "80", "OK", "verde"],
+            ["P010", "Tablones de Madera 32cmx100cm", "Maderas", "$5.000", "45", "Bajo", "naranja"],
+            ["P011", "Clavos de Acero 10cm", "Metales", "$700", "100", "OK", "verde"],
+            ["P012", "Tornillos de Acero 5cm", "Metales", "$750", "50", "Bajo", "naranja"],
+            ["P013", "Malla de Hierro 25mx1m-10mm espesor", "Hierros", "$6.500", "20", "Crítico", "rojo"],
+            ["P014", "Ladrillos Huecos", "Ladrillos", "$800", "45", "Bajo", "naranja"],
+            ["P015", "Varillas para Soldadura", "Metales", "$600", "70", "OK", "verde"],
+            ["P016", "Mecha de taladro Para Cristal", "Instrumentos", "$2.100", "30", "Bajo", "naranja"],
+
+            ["P017", "Ladrillos de Cemento Huecos", "Larillos", "$900", "80", "OK", "verde"],
+            ["P018", "Tablones de Madera 64cmx200cm", "Maderas", "$10.000", "70", "OK", "verde"],
+            ["P019", "Tornillos para Madera 5cm", "Metales", "$750", "55", "Bajo", "naranja"],
+            ["P020", "Clavos para Madera 10cm", "Metales", "$1.500", "40", "Bajo", "naranja"],
+            ["P021", "Discos de Amoladora", "Instrumentos", "$6.700", "70", "OK", "verde"],
+            ["P022", "Vara de Hierro 12mmx12m", "Hierros", "$7.000", "50", "Bajo", "naranja"],
+            ["P023", "Laminas de Acero 3mx1.10m", "Metales", "$10.700", "30", "Crítico", "rojo"],
+            ["P024", "Cable Eléctrico 3mmx1mm Rollo 100m", "Electrónica", "$6.500", "20", "Crítico", "rojo"],
+
+            ["P025", "Mecha de Taladro para Madera", "Instrumentos", "$2.000", "80", "OK", "verde"],
+            ["P026", "Mecha de Taladro para Porcelanatos", "Instrumentos", "$2.300", "45", "Bajo", "naranja"],
+            ["P027", "Taladro Destornillador", "Herramientas", "$17.000", "10", "Bajo", "naranja"],
+            ["P028", "Amoladora", "Herramientas", "$15.000", "7", "Crítico", "rojo"],
+            ["P029", "Martillo 440gm mango Madera", "Herramientas", "$7.000", "30", "Bajo", "naranja"],
+            ["P030", "Pistola de Clavos", "Herramientas", "$15.000", "5", "Crítico", "rojo"],
+            ["P031", "Soldadora", "Máquina", "$175.000", "2", "Crítico", "rojo"],
+            ["P032", "Compactadora", "Máquina", "$150.000", "3", "Crítico", "rojo"]
+        ];
+
+        function cambiarPagina(numero) {
+            let inicio = (numero - 1) * 8;
+            let fin = inicio + 8;
+
+            let productosPagina = productos.slice(inicio, fin);
+
+            let tabla = document.getElementById("tabla-productos");
+
+            tabla.innerHTML = "";
+
+            productosPagina.forEach(function(producto) {
+
+                let fila = document.createElement("tr");
+
+                fila.innerHTML = `
+                    <td>${producto[0]}</td>
+                    <td>${producto[1]}</td>
+                    <td>${producto[2]}</td>
+                    <td>${producto[3]}</td>
+                    <td>${producto[4]}</td>
+                    <td class="${producto[6]}">${producto[5]}</td>
+                `;
+
+                tabla.appendChild(fila);
+            });
+
+            document.getElementById("contador-productos").textContent =
+                `Mostrando ${inicio + 1} a ${Math.min(fin, productos.length)} de ${productos.length} productos.`;
+
+            document.querySelectorAll(".botones_prouctos").forEach(function(boton) {
+                boton.classList.remove("pagina-activa");
+            });
+
+            document.getElementById("pagina-" + numero).classList.add("pagina-activa");
+        }
+
+        cambiarPagina(1);
+    </script>
+    <div id="ventana-login" class="fondo-login">
+        <div class="contenido-login">
+
+            <button class="cerrar-login" onclick="cerrarLogin()">×</button>
+
+            <h2>Iniciar sesión</h2>
+
+            <p>Ingresá tus datos para continuar</p>
+
+            <form onsubmit="iniciarSesion(event)">
+
+                <label for="usuario">Usuario o correo electrónico</label>
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Ingresá tu usuario"
+                    required
+                >
+
+                <label for="contrasena">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasena"
+                    placeholder="Ingresá tu contraseña"
+                    required
+                >
+                <button type="submit" class="boton-login">
+                    Iniciar sesión
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function abrirLogin(event) {
+            event.preventDefault();
+
+            document.getElementById("ventana-login").style.display = "flex";
+        }
+
+        function cerrarLogin() {
+            document.getElementById("ventana-login").style.display = "none";
+        }
+
+        document.getElementById("ventana-login").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                cerrarLogin();
+            }
+
+        });
+
+        function iniciarSesion(event) {
+            event.preventDefault();
+
+            alert("Formulario enviado correctamente.");
+
+            cerrarLogin();
+        }
+    </script>
+</body>
+
+</html>

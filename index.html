@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donhumberto.com</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Donhumberto.com</h1>
+    </header>
+    <aside class="sidebar">
+        <div class="logo">
+            <img class="imagen_logo"  src="./imagenes/logo_corralon.png">
+            <h2>Corralón Don Humberto</h2>
+        </div>
+        <nav class="menu">
+            <div>
+                <a href="index.html" class="activo"> <img class="imagen_sidebar" src="./imagenes/inicio.png"> Inicio</a>
+                <a href="productos.html"> <img class="imagen_sidebar" src="./imagenes/caja.png"> Productos</a>
+                <a href="ventas.html"> <img class="imagen_sidebar" src="./imagenes/carrito.png"> Ventas</a>
+                <a href="compras.html"><img class="imagen_sidebar" src="./imagenes/carrito.png"> compras</a>
+                <a href="logistica.html"> <img class="imagen_sidebar" src="./imagenes/camion.png"> Logística</a>
+                <a href="facturacion.html"><img class="imagen_sidebar" src="./imagenes/cuadernito.png">Facturaciones</a>
+                <a href="#" onclick="abrirLogin(event)"><img class="imagen_sidebar" src="./imagenes/login.png" alt="">Iniciar sesión</a>
+            </div>
+        </nav>
+    </aside>
+    <section>
+        <div class="galeria">
+            <div class="contenido_galeria">
+                <h4>Ventas del día</h4>
+                <h2>$6700</h2>
+                <h5>+15% que ayer</h5>
+            </div>
+            <div class="contenido_galeria">
+                <h4>Pedidos pendientes</h4>
+                <h2>8</h2>
+                <a href="logistica.html">Ver detalles</a>
+            </div>
+            <div class="contenido_galeria">
+                <h4>Productos bajos en stock</h4>
+                <h2>9</h2>
+                <a href="productos.html">Ver detalles</a>
+            </div>
+            <div class="contenido_galeria">
+                <h4>Entregas de hoy</h4>
+                <h2>12</h2>
+                <a href="logistica.html">Ver detalles</a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="galeria">
+            <div class="contenido_galeria2">
+                <img src="./imagenes/grafica.png" alt="">
+            </div>
+            <div class="contenido_galeria2">
+                <img src="./imagenes/grafico_pastel.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contenido_3">
+            <h4>últimos pedidos</h4>
+            <table class="excel-table">
+            <thead>
+                <tr>
+                <th>N° Pedido</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Total</th>
+                <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2548</td>
+                    <td>Leandro Cuello</td>
+                    <td>2024-06-02</td>
+                    <td>$123.726</td>
+                    <td class="celeste">En Camino</td>
+                </tr>
+                <tr>
+                    <td>2547</td>
+                    <td>Samuel León</td>
+                    <td>2024-06-03</td>
+                    <td>$107.531</td>
+                    <td class="rojo">Pendiente</td>
+                </tr>
+                <tr>
+                    <td>2546</td>
+                    <td>Daniel Fuentes</td>
+                    <td>2024-06-04</td>
+                    <td>$570.000</td>
+                    <td class="naranja">En preparación</td>
+                </tr>
+                <tr>
+                    <td>2545</td>
+                    <td>Nachito Casolin</td>
+                    <td>2024-06-07</td>
+                    <td>$150.700</td>
+                    <td class="verde">Entregado</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </section>
+    <div id="ventana-login" class="fondo-login">
+        <div class="contenido-login">
+
+            <button class="cerrar-login" onclick="cerrarLogin()">×</button>
+
+            <h2>Iniciar sesión</h2>
+
+            <p>Ingresá tus datos para continuar</p>
+
+            <form onsubmit="iniciarSesion(event)">
+
+                <label for="usuario">Usuario o correo electrónico</label>
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Ingresá tu usuario"
+                    required
+                >
+
+                <label for="contrasena">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasena"
+                    placeholder="Ingresá tu contraseña"
+                    required
+                >
+                <button type="submit" class="boton-login">
+                    Iniciar sesión
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function abrirLogin(event) {
+            event.preventDefault();
+
+            document.getElementById("ventana-login").style.display = "flex";
+        }
+
+        function cerrarLogin() {
+            document.getElementById("ventana-login").style.display = "none";
+        }
+
+        document.getElementById("ventana-login").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                cerrarLogin();
+            }
+
+        });
+
+        function iniciarSesion(event) {
+            event.preventDefault();
+
+            alert("Formulario enviado correctamente.");
+
+            cerrarLogin();
+        }
+    </script>
+</body>
+
+</html>

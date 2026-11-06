@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don humberto.com</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <img class="imagen_logo"  src="./imagenes/logo_corralon.png">
+            <h2>Corralón Don Humberto</h2>
+        </div>
+        <nav class="menu">
+            <div>
+                <a href="index.html"> <img class="imagen_sidebar" src="./imagenes/inicio.png"> Inicio</a>
+                <a href="productos.html"> <img class="imagen_sidebar" src="./imagenes/caja.png"> Productos</a>
+                <a href="ventas.html"> <img class="imagen_sidebar" src="./imagenes/carrito.png"> Ventas</a>
+                <a href="compras.html"><img class="imagen_sidebar" src="./imagenes/carrito.png"> compras</a>
+                <a href="logistica.html" class="activo"> <img class="imagen_sidebar" src="./imagenes/camion.png"> Logística</a>
+                <a href="facturacion.html"><img class="imagen_sidebar" src="./imagenes/cuadernito.png">Facturaciones</a>
+                <a href="#" onclick="abrirLogin(event)"><img class="imagen_sidebar" src="./imagenes/login.png" alt="">Iniciar sesión</a>
+            </div>
+        </nav>
+    </aside>
+    <section>
+        <div class ="contenido_3">
+            <div class="space-between">
+                <h3>Entregas Programadas</h3>
+                <button class="agregar_venta">+ Agregar Venta</button>
+            </div>
+            <div>
+                <table class="excel-table">
+                    <thead>
+                        <th>N° Entrega</th>
+                        <th>N° Pedido</th>
+                        <th>Cliente</th>
+                        <th>Dirección</th>
+                        <th>Fecha</th>
+                        <th>Repartidor</th>
+                        <th>Estado</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E001</td>
+                            <td>2548</td>
+                            <td>Leandro Cuello</td>
+                            <td>Av. Colón 1234</td>
+                            <td>04/11/26</td>
+                            <td>Santiago Moreno Charpentier</td>
+                            <td class="celeste">En Camino</td>
+                        </tr>
+                        <tr>
+                            <td>E002</td>
+                            <td>2549</td>
+                            <td>Samuel León</td>
+                            <td>Bv. Rosas 4321</td>
+                            <td>27/10/26</td>
+                            <td>Gonzalo Moreno Charpentier</td>
+                            <td class="naranja">En Preparación</td>
+                        </tr>
+                        <tr>
+                            <td>E003</td>
+                            <td>2550</td>
+                            <td>Daniel Fuentes</td>
+                            <td>Alta Gracia</td>
+                            <td>01/11/26</td>
+                            <td>Sebastián Jorge Seoane</td>
+                            <td class="naranja">En Preparación</td>
+                        </tr>
+                        <tr>
+                            <td>E004</td>
+                            <td>2551</td>
+                            <td>Elías Herrera</td>
+                            <td>B° Alberdi</td>
+                            <td>30/11/16</td>
+                            <td>Diego Lichtensstein</td>
+                            <td class="verde">Entregado</td>
+                        </tr>
+                        <tr>
+                            <td>E005</td>
+                            <td>2552</td>
+                            <td>Tobías Fuentes</td>
+                            <td>B° General Paz</td>
+                            <td>15/10/26</td>
+                            <td>Alexander Brettin</td>
+                            <td class="rojo">Sin Preparar</td>
+                        </tr>
+                         <tr>
+                            <td>E006</td>
+                            <td>2553</td>
+                            <td>Francisco Casoli</td>
+                            <td>Monte Cristo</td>
+                            <td>11/10/26</td>
+                            <td>Martín Valdosa</td>
+                            <td class="rojo">Sin Preparar</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+        </div>
+    </section>
+    <div id="ventana-login" class="fondo-login">
+        <div class="contenido-login">
+
+            <button class="cerrar-login" onclick="cerrarLogin()">×</button>
+
+            <h2>Iniciar sesión</h2>
+
+            <p>Ingresá tus datos para continuar</p>
+
+            <form onsubmit="iniciarSesion(event)">
+
+                <label for="usuario">Usuario o correo electrónico</label>
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Ingresá tu usuario"
+                    required
+                >
+
+                <label for="contrasena">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasena"
+                    placeholder="Ingresá tu contraseña"
+                    required
+                >
+                <button type="submit" class="boton-login">
+                    Iniciar sesión
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function abrirLogin(event) {
+            event.preventDefault();
+
+            document.getElementById("ventana-login").style.display = "flex";
+        }
+
+        function cerrarLogin() {
+            document.getElementById("ventana-login").style.display = "none";
+        }
+
+        document.getElementById("ventana-login").addEventListener("click", function(event) {
+
+            if (event.target === this) {
+                cerrarLogin();
+            }
+
+        });
+
+        function iniciarSesion(event) {
+            event.preventDefault();
+
+            alert("Formulario enviado correctamente.");
+
+            cerrarLogin();
+        }
+    </script>
+</body>
+
+</html>
